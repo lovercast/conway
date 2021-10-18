@@ -1,4 +1,4 @@
-#include "cgif.h"
+#include "../external/cgif/cgif.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,25 +52,6 @@ t_cgif do_cgif_setup(const int width, const int height)
     pImageData = malloc(width * height);
     t_cgif ret = {pGIF, fConfig, pImageData};
     return ret;
-
-    // auto gif = new std::unique_ptr<CGIF, cgif_close>()
-
-    // create image frames and add them to GIF
-    for (int f = 0; f < numFrames; ++f) {
-        for (int i = 0; i < (width * height); ++i) {
-            pImageData[i]
-                = (unsigned char)((f + i % width) / 4
-                                  % numColors); // moving stripe pattern (4
-                                                // pixels per stripe)
-        }
-        init_frame_config(&fConfig, pImageData,
-                          10);         // initialize the frame-configuration
-        cgif_addframe(pGIF, &fConfig); // append the new frame
-    }
-    // free(pImageData); // free image data when all frames are added
-
-    // close created GIF-file and free allocated space
-    // cgif_close(pGIF);
 }
 
 void do_cgif_cleanup(t_cgif to_clean)

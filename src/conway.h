@@ -1,5 +1,5 @@
-#ifndef __CONWAY2__ /* include guards */
-#define __CONWAY2__
+#ifndef __CONWAY__ /* include guards */
+#define __CONWAY__
 
 #include <algorithm>
 #include <array>
@@ -18,7 +18,7 @@
 
 using grid = std::unique_ptr<bool[]>;
 
-#include "cgif.h"
+#include "../external/cgif/cgif.h"
 
 /* gif-encoding related constants */
 enum { YELLOW = 0, BLACK = 1 };
@@ -47,9 +47,9 @@ extern void do_cgif_cleanup(cgif::t_cgif to_clean);
 
 } /* extern "C" */
 
-#include "buffer.h"
+#include "conway_grid.h"
 
-void thread_fun(buffer::double_buf *db, int id, int nthreads, uint8_t &flag);
+void thread_fun(conway_grid::double_buf *db, int id, int nthreads, uint8_t &flag);
 bool ready(void);
 
 /* globals */
@@ -64,4 +64,4 @@ std::vector<uint8_t> flag;
 
 std::atomic<int> goddamit;
 
-#endif /* __CONWAY2__ */
+#endif /* __CONWAY__ */

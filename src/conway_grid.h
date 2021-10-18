@@ -1,18 +1,19 @@
-#ifndef BUFFER
-#define BUFFER
+#ifndef CONWAY_GRID
+#define CONWAY_GRID
 
-#include "cgif.h"
+#include "../external/cgif/cgif.h"
 #include "conway.h"
 
 // need a double-buffered-grid class -- one buffer is read to -- one buffer is
 // written to
 
-namespace buffer {
+namespace conway_grid {
 
 std::default_random_engine rng;
 std::uniform_int_distribution<int> dist {0, 26};
 std::mutex mtx;
 
+// double buffered grid
 class double_buf {
 public:
     const int width;
@@ -155,4 +156,4 @@ private:
 
 } /* namespace buffer */
 
-#endif /* BUFFER */
+#endif /* CONWAY_GRID */

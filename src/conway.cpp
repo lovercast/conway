@@ -8,8 +8,8 @@ int main()
     constexpr int height   = 256; // TODO make this settable at runtime
     int nsnaps             = 0;   // snaps so far
 
-    auto db = std::make_unique<buffer::double_buf>(
-        buffer::double_buf(width, height)); // no new
+    auto db = std::make_unique<conway_grid::double_buf>(
+        conway_grid::double_buf(width, height)); // no new
 
     // create copy of bool array that is the right size
     grid copy        = std::make_unique<bool[]>(width * height * sizeof(bool));
