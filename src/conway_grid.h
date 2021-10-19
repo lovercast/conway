@@ -112,7 +112,7 @@ public:
                     // write to copy instead of back
                     copy[x + y * width] = false;
                     count--;
-                } else if (!alive && neighbors >= 3) {
+                } else if (!alive && neighbors == 3) {
                     // back(x, y) = true;
                     copy[x + y * width] = true;
                     count++;
